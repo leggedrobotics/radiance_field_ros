@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<package format="2">
+  <name>nerf_view_controller</name>
+  <version>0.1.0</version>
+  <description>RViz plugin for NeRF/3DGS rendering</description>
+
+  <license>MIT</license>
+  <author email="mwilder@ethz.ch">Maximum Wilder-Smith</author>
+  <maintainer email="mwilder@ethz.ch">Maximum Wilder-Smith</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>qtbase5-dev</build_depend>
+  
+  <depend>std_msgs</depend>
+  <depend>message_generation</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>jsk_rviz_plugins</depend>
+  <depend>nerf_teleoperation_msgs</depend>
+  <depend>rviz</depend>
+
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+
+</package>

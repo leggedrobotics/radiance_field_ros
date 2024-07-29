@@ -1,0 +1,25 @@
+---
+# Config for running Anymal with the dynarm 
+
+width: 1440
+height: 1080
+base_frame: map
+use_preset_D: false
+num_images: 300
+num_start: 50
+hz: 5
+blur_threshold: 80
+validation_factor: 8
+cameras:
+- name: rear
+  image_topic: "/wide_angle_camera_rear/image_raw/compressed"
+  info_topic: "/wide_angle_camera_rear/camera_info"
+  camera_frame: "/wide_angle_camera_rear_camera"
+- name: front
+  image_topic: "/wide_angle_camera_front/image_raw/compressed"
+  info_topic: "/wide_angle_camera_front/camera_info"
+  camera_frame: "/wide_angle_camera_front_camera"
+- name: arm
+  image_topic: "/dynaarm_REALSENSE/color/image_raw/compressed"
+  info_topic: "/dynaarm_REALSENSE/color/camera_info"
+  camera_frame: "/dynaarm_REALSENSE_color_frame"

@@ -1,0 +1,17 @@
+---
+# Config for running just the DynaArm with depth data from the realsense
+
+width: 640
+height: 480
+base_frame: map
+num_images: 51
+num_start: 5
+hz: 2
+blur_threshold: 80
+validation_factor: 8
+cameras:
+- name: arm
+  image_topic: "/dynaarm_REALSENSE/color/image_raw"
+  info_topic: "/dynaarm_REALSENSE/color/camera_info"
+  depth_topic: "/dynaarm_REALSENSE/aligned_depth_to_color/image_raw"
+  camera_frame: "/dynaarm_REALSENSE_color_frame"

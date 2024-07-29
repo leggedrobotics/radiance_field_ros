@@ -1,0 +1,36 @@
+# Goal
+int16 width
+int16 height
+uint8 mode
+float32 resolution
+float32 fov_factor
+float32 focal_length_x
+float32 focal_length_y
+float32 principal_point_x
+float32 principal_point_y
+float32 k1
+float32 k2
+float32 p1
+float32 p2
+float32 box_size
+geometry_msgs/Pose pose
+string frame_id
+int32 client_id
+
+---
+# Result
+sensor_msgs/CompressedImage rgb_image
+sensor_msgs/Image depth_image
+float32 resolution
+float32 render_time
+int32 client_id
+uint16 seq
+
+---
+# Feedback
+sensor_msgs/CompressedImage rgb_image
+sensor_msgs/Image depth_image
+float32 resolution
+float32 render_time
+int32 client_id
+uint16 seq

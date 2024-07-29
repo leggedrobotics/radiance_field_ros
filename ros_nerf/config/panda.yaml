@@ -1,0 +1,18 @@
+---
+# Config for the Realsense on the Franka panda arm
+
+width: 1280
+height: 720
+base_frame: panda_link0
+num_images: 300
+num_start: 5
+hz: 10
+blur_threshold: 70
+validation_factor: 8
+publish_hz: 5
+cameras:
+- name: color
+  image_topic: "/camera/color/image_raw"
+  depth_topic: "/camera/aligned_depth_to_color/image_raw"
+  info_topic: "/camera/color/camera_info"
+  camera_frame: "/camera_color_frame"

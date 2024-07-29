@@ -1,0 +1,9 @@
+<library path="libnerf_view_controller">
+  <class name="nerf_view_controller/NerfViewController"
+    type="nerf_view_controller::NerfViewController"
+    base_class_type="rviz::ViewController">
+    <description>
+        Standard camera for RViz, that renders NeRFs to the view window.
+    </description>
+  </class>
+</library>

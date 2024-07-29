@@ -1,0 +1,38 @@
+# Nerf models
+outputs/
+
+# Nerf exports
+exports/
+
+# Data
+data/
+
+# vscode
+.vscode/
+
+# Build artifacts
+build/
+devel/
+
+# Compiled binaries
+bin/
+lib/
+
+# ROS workspace
+install/
+
+# ROS logs
+log/
+
+# ROS generated files
+build_isolated/
+install_isolated/
+
+# Python
+*.pyc
+__pycache__/
+venv/
+env/
+dist/
+build/
+*.egg-info/

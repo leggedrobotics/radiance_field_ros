@@ -1,0 +1,18 @@
+---
+# Config for Zed2i depth camera with mapping enabled
+
+width: 1280
+height: 720
+base_frame: map
+use_preset_D: false
+num_images: 1000
+num_start: 500
+hz: 20
+blur_threshold: 70
+validation_factor: 8
+cameras:
+- name: zed
+  image_topic: "/zed2/zed_node/rgb/image_rect_color/compressed"
+  info_topic: "/zed2/zed_node/rgb/camera_info"
+  camera_frame: "/zed2_left_camera_optical_frame"
+  depth_topic: "/zed2/zed_node/depth/depth_registered"
