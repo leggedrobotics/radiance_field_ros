@@ -74,3 +74,14 @@ For more immersive rendering, checkout the Unity VR project at [nerf-teleoperati
 
 ## Troubleshooting
 If there is an issue with the conda environment and the catkin_ws, you can make catkin use the conda environment for python path by cleaning and rebuilding the workspace with the conda environment activated.
+
+## Citing
+If you use this project in your work please cite [this paper](https://arxiv.org/abs/2407.20194):
+```text
+@article{wildersmith2024rfteleoperation,
+  author    = {Maximum Wilder-Smith, Vaishakh Patil, Marco Hutter},
+  title     = {Radiance Fields for Robotic Teleoperation},
+  journal   = {arXiv},
+  year      = {2024},
+}
+```
