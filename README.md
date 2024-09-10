@@ -8,7 +8,28 @@ This package combines NerfStudio with ROS to provide a multi-camera system for d
 
 ## Installation
 
-Start by cloning this repository into your catkin workspace and using [rosdep](http://wiki.ros.org/rosdep) to install system packages. Next you need to link this package to NerfStudio. If NerfStudio is in a conda environment, activate that first then go into this folder and run `pip install -e .`.
+Start by cloning this repository into your catkin workspace and using [rosdep](http://wiki.ros.org/rosdep) to install system packages. 
+
+Next you need to link this package to NerfStudio. If NerfStudio is already installed and in a conda environment, activate that first then go into this folder and run `pip install -e .`.
+
+If NerfStudio is not already installed, you can install it with the following commands:
+```bash
+
+conda create --name nerfstudio -y python=3.8
+conda activate nerfstudio
+pip install --upgrade pip
+
+conda install pytorch==2.1.2 torchvision==0.16.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
+
+# This may take a while to build
+pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+
+# Finally install the package and NerfStudio with
+pip install -e .
+
+```
+
 
 Next build the package as normal with `catkin build nerf_teleoperation`, then source the workspace. Double check installation worked with `ns-ros -h` this should display the help message along with all the installed NerfStudio methods. Also verify that the RViz plugin works by launching RViz with the workspace sourced and switching to the NerfViewController type in the Views panel.
 

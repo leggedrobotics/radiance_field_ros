@@ -4,9 +4,6 @@ outputs/
 # Nerf exports
 exports/
 
-# Data
-data/
-
 # vscode
 .vscode/
 
