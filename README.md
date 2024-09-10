@@ -70,7 +70,8 @@ With the workspace sourced, the RVIZ plugin should be linked, allowing you to se
 
 For more immersive rendering, checkout the Unity VR project at [nerf-teleoperation-unity](https://github.com/leggedrobotics/unity_ros_teleoperation).
 
-
+### Datasets
+Some sample ROS bag datasets can be found [here](https://drive.google.com/drive/folders/1_Z-Z5WJOUWyvzGk0lrY_ORTcB7Wi2xQw?usp=sharing) along with informatiopn about which config file goes with each bag.
 
 ## Troubleshooting
 If there is an issue with the conda environment and the catkin_ws, you can make catkin use the conda environment for python path by cleaning and rebuilding the workspace with the conda environment activated.
