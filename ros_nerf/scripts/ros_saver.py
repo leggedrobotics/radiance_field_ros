@@ -78,12 +78,6 @@ class ROSSaver:
         self.config = config.ros
         name = self.config.update()
 
-        if self.config.static_tfs:
-            self.static_tfs = [{'name': tf['name'], 'frame': tf['frame']} for tf in self.config.static_tfs]
-            self.save_statics = True
-        else:
-            self.save_statics = False
-
         # Check if we are dealing with multiple cameras/intrinsic parameters or just one
         self.multi_cam = len(self.config.cameras) > 1
 
@@ -171,24 +165,7 @@ class ROSSaver:
         with Progress(TextColumn("[bold blue]{task.description}"), BarColumn(), TimeRemainingColumn(), MofNCompleteColumn(),TextColumn("Images loaded"), console=CONSOLE) as progress:
             capture_task = progress.add_task("Capturing data...", total=self.max_imgs)
             while not rospy.is_shutdown():
-                if self.save_statics:
-                    try:
-                        for tf in self.static_tfs:
-                            transform = tf_to_transform(self.buffer.lookup_transform(tf['frame'], self.config.base_frame, rospy.Time(0)))
-                            transform = transform.tolist()
-                            json_tf = {
-                                "name": tf['name'],
-                                "transform": transform
-                            }
-                            with open(f'{self.output_path}/{tf["name"]}.json','w') as f:
-                                f.write(json.dumps(json_tf,indent=4))
-                            rospy.loginfo(f"Saved static transform {tf['name']}")
-                            self.save_statics = False
-                    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-                        pass
-                            
-
-
+            
                 progress.update(capture_task, completed=len(self.transforms["frames"]), description="Capturing data..." if self.run else "Paused")
                 if len(self.transforms["frames"]) >= self.max_imgs:
                     rospy.loginfo("Reached max number of images")
