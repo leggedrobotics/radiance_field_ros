@@ -72,7 +72,13 @@ def type_to_ns(ros_type: str) -> CameraType:
         CameraType: The NerfStudio camera type.
 
     """
-    return CameraType.PERSPECTIVE
+
+    if ros_type == "plumb_bob":
+        return CameraType.PERSPECTIVE
+    elif ros_type == "equidistant":
+        return CameraType.FISHEYE
+    else:
+        raise ValueError(f"Unknown camera type: {ros_type}")
 
 
 class Sensor():
@@ -199,11 +205,22 @@ class Sensor():
 
             self.cam_type = type_to_ns(info.distortion_model).value
 
+
+            if self.cam_type == CameraType.FISHEYE.value:
+                self.D = torch.Tensor(
+                    [info.D[0], info.D[1], info.D[2], info.D[3], 0, 0])
+
+            elif self.cam_type == CameraType.PERSPECTIVE.value:
+                self.D = torch.Tensor(
+                    [info.D[0], info.D[1], info.D[4], 0, info.D[2], info.D[3]])
+
+
+            # if we are dealing with a rectified image, we don't need distortion parameters
             if not check_type_match(self.info_topic, self.cam_type):
                 self.D = torch.Tensor([0, 0, 0, 0, 0, 0])
 
-        rospy.loginfo(
-            f"{self.name} got info {self.H}x{self.W} {self.cam_type} {self.D}, fx: {self.fx}, fy: {self.fy}, cx: {self.cx}, cy: {self.cy}")
+        rospy.logdebug(
+            f"{self.name} got info {self.H}x{self.W}, camera: {self.cam_type}, D: {self.D}, fx: {self.fx}, fy: {self.fy}, cx: {self.cx}, cy: {self.cy}")
         rospy.loginfo(f"{self.name} updated info")
 
         self.updated = True

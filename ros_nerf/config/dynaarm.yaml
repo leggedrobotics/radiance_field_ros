@@ -4,8 +4,8 @@
 width: 640
 height: 480
 base_frame: map
-num_images: 51
-num_start: 5
+num_images: 500
+num_start: 100
 hz: 2
 blur_threshold: 80
 validation_factor: 8
