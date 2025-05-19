@@ -1,6 +1,6 @@
 # Radiance Fields for Robotic Teleoperation
 
-[Project Page](https://leggedrobotics.github.io/rffr.github.io/)
+[Project Page](https://rffr.leggedrobotics.com/works/teleoperation/)
 
 ## Introduction
 
@@ -100,10 +100,13 @@ If there is an issue with the conda environment and the catkin_ws, you can make 
 ## Citing
 If you use this project in your work please cite [this paper](https://arxiv.org/abs/2407.20194):
 ```text
-@article{wildersmith2024rfteleoperation,
-  author    = {Maximum Wilder-Smith, Vaishakh Patil, Marco Hutter},
-  title     = {Radiance Fields for Robotic Teleoperation},
-  journal   = {arXiv},
-  year      = {2024},
+@misc{wildersmith2025radiancefieldsroboticteleoperation,
+      title={Radiance Fields for Robotic Teleoperation}, 
+      author={Maximum Wilder-Smith and Vaishakh Patil and Marco Hutter},
+      year={2024},
+      eprint={2407.20194},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2407.20194}, 
 }
 ```
